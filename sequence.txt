@@ -1,0 +1,358 @@
+=================
+title  Verifikasi Pengguna
+
+actor pengguna
+boundary login
+control Auth
+entity PenggunaModel
+control Dashboard
+boundary dashboard
+
+pengguna ->login : entri username dan password
+pengguna ->login : klik login
+
+login ->Auth : login()
+
+Auth ->PenggunaModel : masuk()
+
+PenggunaModel -->Auth : return
+
+Auth ->Dashboard : index()
+
+Dashboard ->dashboard : index()
+
+================================
+title  Kelola Jenis Aset
+
+actor pengguna
+boundary JenisView
+boundary UpJenisView
+
+control JenisController
+entity JenisModel
+
+
+JenisController ->JenisView : index()
+
+pengguna ->JenisView : klik tombol tambah
+
+JenisView ->JenisView : form tambah data
+
+pengguna ->JenisView : entri data baru
+pengguna ->JenisView :klik tambah
+
+JenisView ->JenisController : tambah()
+
+JenisController ->JenisModel : tambah()
+
+JenisModel -->JenisController : return 
+
+JenisController ->JenisView : index()
+
+pengguna ->JenisView : klik tombol ubah
+
+JenisView ->JenisController : ubah()
+
+JenisController ->JenisModel : ambilData()
+
+JenisModel -->JenisController : return
+
+JenisController ->UpJenisView : index()
+pengguna ->UpJenisView : entri data perubahan
+pengguna ->UpJenisView : klim tombol ubah
+
+UpJenisView ->JenisController : ubah()
+JenisController ->JenisModel : ubah()
+JenisModel -->JenisController: return
+JenisController ->JenisView : index()
+
+pengguna ->JenisView : klik tombol hapus
+JenisView ->JenisController : hapus()
+JenisController ->JenisModel : hapus()
+JenisModel -->JenisController : return
+JenisController ->JenisView : index()
+
+
+
+================================
+title Kelola Kategori Aset
+actor pengguna
+boundary KategoriView
+boundary UpKategoriView
+
+control KategoriController
+entity KategoriModel
+
+
+KategoriController ->KategoriView : index()
+
+pengguna ->KategoriView : klik tombol tambah
+
+KategoriView ->KategoriView : form tambah data
+
+pengguna ->KategoriView : entri data baru
+pengguna ->KategoriView :klik tambah
+
+KategoriView ->KategoriController : tambah()
+
+KategoriController ->KategoriModel : tambah()
+
+KategoriModel -->KategoriController : return 
+
+KategoriController ->KategoriView : index()
+
+pengguna ->KategoriView : klik tombol ubah
+
+KategoriView ->KategoriController : ubah()
+
+KategoriController ->KategoriModel : ambilData()
+
+KategoriModel -->KategoriController : return
+
+KategoriController ->UpKategoriView : index()
+pengguna ->UpKategoriView : entri data perubahan
+pengguna ->UpKategoriView : klim tombol ubah
+
+UpKategoriView ->KategoriController : ubah()
+KategoriController ->JenisModel : ubah()
+KategoriModel -->KategoriController: return
+KategoriController ->KategoriView : index()
+
+pengguna ->KategoriView : klik tombol hapus
+KategoriView ->KategoriController : hapus()
+KategoriController ->JenisModel : hapus()
+KategoriModel -->KategoriController : return
+KategoriController ->KategoriView : index()
+
+
+================================
+title Kelola Kondisi Aset
+actor pengguna
+boundary KondisiView
+boundary UpKondisiView
+
+control KondisiController
+entity KondisiModel
+
+
+KondisiController ->KondisiView : index()
+
+pengguna ->KondisiView : klik tombol tambah
+
+KondisiView ->KondisiView : form tambah data
+
+pengguna ->KondisiView : entri data baru
+pengguna ->KondisiView :klik tambah
+
+KondisiView ->KondisiController : tambah()
+
+KondisiController ->KondisiModel : tambah()
+
+KondisiModel -->KondisiController : return 
+
+KondisiController ->KondisiView : index()
+
+pengguna ->KondisiView : klik tombol ubah
+
+KondisiView ->KondisiController : ubah()
+
+KondisiController ->KondisiModel : ambilData()
+
+KondisiModel -->KondisiController : return
+
+KondisiController ->UpKondisiView : index()
+pengguna ->UpKondisiView : entri data perubahan
+pengguna ->UpKondisiView : klim tombol ubah
+
+UpKondisiView ->KondisiController : ubah()
+KondisiController ->KondisiModel : ubah()
+KondisiModel -->KondisiController: return
+KondisiController ->KondisiView : index()
+
+pengguna ->KondisiView : klik tombol hapus
+KondisiView ->KondisiController : hapus()
+KondisiController ->KondisiModel : hapus()
+KondisiModel -->KondisiController : return
+KondisiController ->KondisiView : index()
+
+======================================
+
+title  Kelola Aset (1)
+
+actor pengguna
+boundary AsetView
+boundary UpAsetView
+control AsetController
+entity AsetModel
+
+AsetController ->AsetView : index()
+
+pengguna ->AsetView : klil tombol tambah
+
+AsetView ->AsetController : tambah ()
+
+AsetController ->UpAsetView : index()
+
+pengguna ->UpAsetView : entri data baru
+
+pengguna ->UpAsetView : klil tombol tambah
+
+UpAsetView ->AsetController : tambah()
+
+AsetController ->AsetModel : tambah()
+
+AsetModel -->AsetController : return
+AsetController ->AsetView : index()
+
+pengguna ->AsetView : klik tombol ubah
+AsetView ->AsetController : ubah()
+AsetController ->AsetModel: ambilData()
+AsetModel -->AsetController : return
+AsetController ->UpAsetView : index()
+
+pengguna ->UpAsetView : entri data perubahan
+pengguna ->UpAsetView : klik tombol ubah
+
+UpAsetView ->AsetController : ubah()
+AsetController ->AsetModel : ubah()
+AsetModel -->AsetController : return
+AsetController ->AsetView : index()
+
+pengguna ->AsetView : klik tombol hapus
+AsetView ->AsetController : hapus()
+AsetController ->AsetModel : hapus ()
+AsetModel -->AsetController : return
+AsetController ->AsetView : index()
+==================================
+
+title  Kelola Aset (2)
+
+actor pengguna
+boundary AsetView
+boundary UpLaporAsetView
+boundary LaporAsetView
+
+control AsetController
+control LaporAsetController
+
+entity AsetModel
+entity LaporAsetModel
+
+AsetController ->AsetView : index()
+pengguna ->AsetView : klik Laporkan
+AsetView ->LaporAsetController : laporkan()
+LaporAsetController->UpLaporAsetView:index()
+pengguna ->UpLaporAsetView:entri data
+pengguna ->UpLaporAsetView : klik Laporkan
+UpLaporAsetView ->LaporAsetController : tambah()
+LaporAsetController ->LaporAsetModel : tambah()
+LaporAsetModel -->LaporAsetController:return
+LaporAsetController ->AsetController : index()
+AsetController ->AsetView : index()
+
+
+
+LaporAsetController ->LaporAsetView : index()
+
+pengguna ->LaporAsetView : klik tombol Terima
+
+LaporAsetView ->LaporAsetController : terima()
+
+LaporAsetController ->LaporAsetModel : ubah() 
+LaporAsetModel -->LaporAsetController : return
+
+LaporAsetController ->AsetModel : ubah()
+
+AsetModel -->LaporAsetController : return
+
+LaporAsetController ->LaporAsetView : index()
+
+
+
+
+
+
+
+
+
+
+==============================
+title  Kelola Aset (3)
+
+actor pengguna
+boundary LaporAsetView
+control LaporAsetController
+
+entity AsetModel
+entity LaporAsetModel
+
+
+LaporAsetController ->LaporAsetView : index()
+
+pengguna ->LaporAsetView : klik tombol Terima
+
+LaporAsetView ->LaporAsetController : terima()
+
+LaporAsetController ->LaporAsetModel : ubah() 
+LaporAsetModel -->LaporAsetController : return
+
+LaporAsetController ->AsetModel : ubah()
+
+AsetModel -->LaporAsetController : return
+
+LaporAsetController ->LaporAsetView : index()
+======================
+title  Kelola Pengguna
+
+actor pengguna
+boundary PenggunaView
+boundary UpPenggunaView
+
+control PenggunaController
+entity PenggunaModel
+
+
+PenggunaController ->PenggunaView : index()
+
+pengguna ->PenggunaView : klik tombol tambah
+
+PenggunaView ->PenggunaView : form tambah data
+
+pengguna ->PenggunaView : entri data baru
+pengguna ->PenggunaView :klik tambah
+
+PenggunaView ->PenggunaController : tambah()
+
+PenggunaController ->PenggunaModel : tambah()
+
+PenggunaModel -->PenggunaController : return 
+
+PenggunaController ->PenggunaView : index()
+
+pengguna ->PenggunaView : klik tombol ubah
+
+PenggunaView ->PenggunaController : ubah()
+
+PenggunaController ->PenggunaModel : ambilData()
+
+PenggunaModel -->PenggunaController : return
+
+PenggunaController ->UpPenggunaView : index()
+pengguna ->UpPenggunaView : entri data perubahan
+pengguna ->UpPenggunaView : klim tombol ubah
+
+UpPenggunaView ->PenggunaController : ubah()
+PenggunaController ->PenggunaModel : ubah()
+PenggunaModel -->PenggunaController: return
+PenggunaController ->PenggunaView : index()
+
+pengguna ->PenggunaView : klik tombol hapus
+PenggunaView ->PenggunaController : hapus()
+PenggunaController ->PenggunaModel : hapus()
+PenggunaModel -->PenggunaController : return
+PenggunaController ->PenggunaView : index()
+
+
+
+
+
